@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional: Google Fonts (clean & modern look) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+
+  <style>
+    .animate-welcome {
+      animation: welcomePop 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    @keyframes welcomePop {
+      0%   { opacity: 0; transform: scale(0.6) translateY(40px); }
+      60%  { opacity: 1; transform: scale(1.08) translateY(-12px); }
+      80%  { transform: scale(0.98) translateY(4px); }
+      100% { transform: scale(1) translateY(0); }
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      animation: fadeUp 0.9s ease-out forwards;
+      animation-delay: calc(var(--delay) * 150ms);
+    }
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 flex flex-col items-center justify-center p-6">
+
+  <div class="text-center max-w-2xl">
+
+    <!-- Big Welcome Animation -->
+    <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tight mb-6 animate-welcome gradient-text">
+      Welcome
+    </h1>
+
+    <!-- Subtitle with staggered fade-in -->
+    <p class="text-xl sm:text-2xl text-gray-700 font-light mb-10 opacity-0 translate-y-6 fade-in-up" style="--delay: 1">
+      Secure • Fast • Passwordless
+    </p>
+
+    <p class="text-lg sm:text-xl text-gray-600 mb-12 opacity-0 translate-y-6 fade-in-up" style="--delay: 2">
+      Sign in with just your email — no passwords needed.
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-5 justify-center opacity-0 translate-y-6 fade-in-up" style="--delay: 3">
+      <a href="/login" 
+         class="inline-flex items-center justify-center px-10 py-5 text-lg font-medium
+                bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl
+                shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        Continue with Email OTP
+      </a>
+
+      <a href="/about" 
+         class="inline-flex items-center justify-center px-10 py-5 text-lg font-medium
+                border-2 border-indigo-200 hover:border-indigo-300 text-indigo-700
+                bg-white/60 backdrop-blur-sm rounded-xl
+                hover:bg-white/80 transition-all duration-300">
+        Learn how it works
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Optional floating decorative elements -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-[-1]">
+    <div class="absolute -top-20 -right-20 w-64 h-64 bg-purple-300/20 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute -bottom-32 -left-20 w-96 h-96 bg-indigo-300/20 rounded-full blur-3xl animate-pulse-slow delay-1000"></div>
+    <div class="absolute top-1/3 left-1/4 w-48 h-48 bg-pink-300/15 rounded-full blur-2xl animate-pulse-slow delay-2000"></div>
+  </div>
+
+  <style>
+    @keyframes pulse-slow {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50%      { transform: scale(1.15); opacity: 0.7; }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 12s infinite ease-in-out;
+    }
+    .delay-1000 { animation-delay: 1s; }
+    .delay-2000 { animation-delay: 2s; }
+  </style>
+
+  <!-- Tiny footer -->
+  <footer class="mt-auto pb-8 text-sm text-gray-500 opacity-70">
+    © 2026 • Made with magic & OTPs
+  </footer>
+
+</body>
+</html>
